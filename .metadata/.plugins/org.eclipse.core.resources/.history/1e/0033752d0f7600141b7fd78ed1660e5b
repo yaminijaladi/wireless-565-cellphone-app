@@ -14,7 +14,6 @@ public class MainActivity extends Activity {
         
         //create a new class that executes a post request
         PostStuff p = new PostStuff();
-        p.execute(null,null,null);
         
     }
     
