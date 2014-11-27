@@ -2,7 +2,6 @@ package com.example.wless565;
 
 import org.apache.http.impl.client.*;
 import org.apache.http.client.*;
-import org.apache.http.client.methods.*;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         HttpClient client = new DefaultHttpClient();
-        HttpPost post = new HttpPost();
     }
 
 
