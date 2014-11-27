@@ -1,14 +1,8 @@
 package com.example.wless565;
 
 import org.apache.http.impl.client.*;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.client.*;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.*;
-import org.apache.http.*;
-
-import java.io.UnsupportedEncodingException;
-import java.util.*;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -22,22 +16,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        //set up client and create post request
         HttpClient client = new DefaultHttpClient();
-        HttpPost post = new HttpPost("ec2-54-148-149-145.us-west-2.compute.amazonaws.com");
-        
-        //create key-value pairs
-        List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-        pairs.add(new BasicNameValuePair("k1", "v1"));
-        
-        //convert to post
-        try {
-			post.setEntity(new UrlEncodedFormEntity(pairs));
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        HttpPost post = new HttpPost();
     }
 
 

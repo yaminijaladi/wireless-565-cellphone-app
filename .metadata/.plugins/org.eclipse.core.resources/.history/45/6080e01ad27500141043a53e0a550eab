@@ -1,7 +1,6 @@
 package com.example.wless565;
 
 import org.apache.http.impl.client.*;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.client.*;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.*;
@@ -29,9 +28,6 @@ public class MainActivity extends Activity {
         
         //create key-value pairs
         List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-        pairs.add(new BasicNameValuePair("k1", "v1"));
-        
-        //convert to post
         try {
 			post.setEntity(new UrlEncodedFormEntity(pairs));
 		} catch (UnsupportedEncodingException e) {
