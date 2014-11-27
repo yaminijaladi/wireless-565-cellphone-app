@@ -1,0 +1,15 @@
+package com.example.wless565;
+
+import android.os.AsyncTask;
+
+public class PostStuff extends AsyncTask<String, String, String> {
+	//parameters progress result
+
+	@Override
+	protected String doInBackground(String... params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}
