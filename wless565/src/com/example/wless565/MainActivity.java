@@ -16,8 +16,11 @@ import android.view.MenuItem;
 public class MainActivity extends Activity implements GooglePlayServicesClient.ConnectionCallbacks, GooglePlayServicesClient.OnConnectionFailedListener {
 //END GET LOCATION
 	
+	//GET LOCATION
 	protected static final int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
 	protected LocationClient loClient;
+    Location currentLocation;
+	//END GET LOCATION
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +33,6 @@ public class MainActivity extends Activity implements GooglePlayServicesClient.C
         
         //GET LOCATION
         loClient = new LocationClient(this,this,this);
-        Location currentLocation;
-        //currentLocation = loClient.getLastLocation();
         //END GET LOCATION
         
     }
@@ -74,19 +75,15 @@ public class MainActivity extends Activity implements GooglePlayServicesClient.C
 	@Override
 	public void onConnected(Bundle arg0) {
 		Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
+		currentLocation = loClient.getLastLocation();
 	}
-
-
 	@Override
 	public void onDisconnected() {
-		// TODO Auto-generated method stub
-		
+		Toast.makeText(this, "Disconnected. Please re-connect.",Toast.LENGTH_SHORT).show();
 	}
-
-
 	@Override
 	public void onConnectionFailed(ConnectionResult arg0) {
-		// TODO Auto-generated method stub
+		Toast.makeText(this, "Connection Failed", Toast.LENGTH_SHORT).show();
 		
 	}
 	//END GET LOCATION
