@@ -1,12 +1,24 @@
 package com.example.wless565;
 
+//GET LOCATION
+import com.google.android.gms.common.*;
+import com.google.android.gms.location.*;
+import android.location.Location;
+import android.widget.Toast;
+//END GET LOCATION
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends Activity {
-
+//GET LOCATION
+public class MainActivity extends Activity implements GooglePlayServicesClient.ConnectionCallbacks, GooglePlayServicesClient.OnConnectionFailedListener {
+//END GET LOCATION
+	
+	protected static final int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
+	protected LocationClient loClient;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +27,12 @@ public class MainActivity extends Activity {
         //create a new class that executes a post request
         PostStuff p = new PostStuff();
         p.execute(null,null,null);
+        
+        //GET LOCATION
+        loClient = new LocationClient(this,this,this);
+        Location currentLocation;
+        //currentLocation = loClient.getLastLocation();
+        //END GET LOCATION
         
     }
     
@@ -37,4 +55,39 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+    //GET LOCATION
+    // see https://developer.android.com/training/location/retrieve-current.html
+    // for further information
+    @Override
+    protected void onStart() {
+    	super.onStart();
+    	loClient.connect();
+    }
+    @Override
+    protected void onStop() {
+    	loClient.disconnect();
+    	super.onStop();
+    }
+    
+	@Override
+	public void onConnected(Bundle arg0) {
+		Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
+	}
+
+
+	@Override
+	public void onDisconnected() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void onConnectionFailed(ConnectionResult arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	//END GET LOCATION
 }

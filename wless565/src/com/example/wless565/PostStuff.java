@@ -32,7 +32,7 @@ public class PostStuff extends AsyncTask<String, String, String> {
 	protected String doInBackground(String... params) {
 		//set up client and create post request
         HttpClient client = new DefaultHttpClient();
-        HttpPost post = new HttpPost("http://ec2-54-148-149-145.us-west-2.compute.amazonaws.com");
+        HttpPost post = new HttpPost("http://ec2-54-148-149-145.us-west-2.compute.amazonaws.com/cgi-bin/postreq");
         
         //create key-value pairs
         List<NameValuePair> pairs = new ArrayList<NameValuePair>();
@@ -49,7 +49,9 @@ public class PostStuff extends AsyncTask<String, String, String> {
       //send post request
        
         try {
-			HttpResponse response = client.execute(post);
+        	ResponseHandler<String> rhandler = new BasicResponseHandler();
+        	String content = client.execute(post,rhandler);
+			//HttpResponse response = client.execute(post);
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,7 +61,6 @@ public class PostStuff extends AsyncTask<String, String, String> {
 			e.printStackTrace();
 			System.out.println("ioexception");
 		}
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

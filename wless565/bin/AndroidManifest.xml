@@ -9,6 +9,11 @@
         android:targetSdkVersion="19" />
     
     <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- GET LOCATION -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--  END GET LOCATION -->
 
     <application
         android:allowBackup="true"
