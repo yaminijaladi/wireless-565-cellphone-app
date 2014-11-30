@@ -13,9 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 //GET LOCATION
-public class MainActivity extends Activity implements GooglePlayServicesClient.ConnectionCallbacks, 
-                                                      GooglePlayServicesClient.OnConnectionFailedListener,
-                                                      LocationListener {
+public class MainActivity extends Activity implements GooglePlayServicesClient.ConnectionCallbacks, GooglePlayServicesClient.OnConnectionFailedListener {
 //END GET LOCATION
 	
 	//GET LOCATION
@@ -28,6 +26,10 @@ public class MainActivity extends Activity implements GooglePlayServicesClient.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        //create a new class that executes a post request
+        PostStuff p = new PostStuff();
+        p.execute(null,null,null);
         
         //GET LOCATION
         loClient = new LocationClient(this,this,this);
@@ -74,22 +76,6 @@ public class MainActivity extends Activity implements GooglePlayServicesClient.C
 	public void onConnected(Bundle arg0) {
 		Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
 		currentLocation = loClient.getLastLocation();
-		displayAndSendLocation();
-	}
-	
-	public void displayAndSendLocation(){
-		String lat = Double.toString(currentLocation.getLatitude());
-		String lon = Double.toString(currentLocation.getLongitude());
-		String lmsg = "update: " 
-	            + lat
-	            + " , "
-				+ lon ;
-		Toast.makeText(this,lmsg, Toast.LENGTH_SHORT).show();
-		
-		//create a new class that executes a post request
-        PostStuff p = new PostStuff();
-        p.execute("latitude", lat,"longitude", lon);
-		
 	}
 	@Override
 	public void onDisconnected() {
@@ -99,11 +85,6 @@ public class MainActivity extends Activity implements GooglePlayServicesClient.C
 	public void onConnectionFailed(ConnectionResult arg0) {
 		Toast.makeText(this, "Connection Failed", Toast.LENGTH_SHORT).show();
 		
-	}
-	@Override
-	public void onLocationChanged(Location arg0) {
-		currentLocation = arg0;
-		displayAndSendLocation();
 	}
 	//END GET LOCATION
 }

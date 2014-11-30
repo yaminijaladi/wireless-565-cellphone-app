@@ -32,7 +32,7 @@ public class PostStuff extends AsyncTask<String, String, String> {
 	protected String doInBackground(String... params) {
 		//set up client and create post request
         HttpClient client = new DefaultHttpClient();
-        HttpPost post = new HttpPost("http://ec2-54-148-149-145.us-west-2.compute.amazonaws.com/cgi-bin/postreq");
+        HttpPost post = new HttpPost("http://ec2-54-148-149-145.us-west-2.compute.amazonaws.com/cgi-bin/cgi-bin/postreq");
         
         //create key-value pairs
         //GET LOCATION

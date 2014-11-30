@@ -35,12 +35,10 @@ public class PostStuff extends AsyncTask<String, String, String> {
         HttpPost post = new HttpPost("http://ec2-54-148-149-145.us-west-2.compute.amazonaws.com/cgi-bin/postreq");
         
         //create key-value pairs
-        //GET LOCATION
         List<NameValuePair> pairs = new ArrayList<NameValuePair>();
         for(int i = 0; i < params.length; i += 2) {
         	pairs.add(new BasicNameValuePair(params[i],params[i + 1]));
         }
-        //END GET LOCATION
         
         //convert to post
         try {

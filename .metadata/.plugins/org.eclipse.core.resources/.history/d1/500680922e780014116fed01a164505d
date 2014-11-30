@@ -88,7 +88,7 @@ public class MainActivity extends Activity implements GooglePlayServicesClient.C
 		
 		//create a new class that executes a post request
         PostStuff p = new PostStuff();
-        p.execute("latitude", lat,"longitude", lon);
+        p.execute("latitude=" + lat,"longitude=" + lon);
 		
 	}
 	@Override
