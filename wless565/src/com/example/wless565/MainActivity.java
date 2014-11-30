@@ -5,6 +5,8 @@ import com.google.android.gms.common.*;
 import com.google.android.gms.location.*;
 import android.location.Location;
 import android.widget.Toast;
+import android.telephony.*;
+import android.content.*;
 //END GET LOCATION
 
 import android.app.Activity;
@@ -22,6 +24,8 @@ public class MainActivity extends Activity implements GooglePlayServicesClient.C
 	protected static final int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
 	protected LocationClient loClient;
     Location currentLocation;
+    String carrier;
+    String number;
 	//END GET LOCATION
 	
     @Override
@@ -31,6 +35,12 @@ public class MainActivity extends Activity implements GooglePlayServicesClient.C
         
         //GET LOCATION
         loClient = new LocationClient(this,this,this);
+        //get carrier name and phone number
+      		TelephonyManager manager = (TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
+      	    carrier = manager.getNetworkOperatorName();
+      	    number = manager.getLine1Number();
+      		if(carrier.equals("AT&T")) { carrier = "txt.att.net"; number = number.substring(1,number.length());}
+      		else if (carrier.equals("Verizon Wireless")) { carrier = "vtext.com"; }
         //END GET LOCATION
         
     }
@@ -78,6 +88,7 @@ public class MainActivity extends Activity implements GooglePlayServicesClient.C
 	}
 	
 	public void displayAndSendLocation(){
+		// retrieve location information
 		String lat = Double.toString(currentLocation.getLatitude());
 		String lon = Double.toString(currentLocation.getLongitude());
 		String lmsg = "update: " 
@@ -85,10 +96,14 @@ public class MainActivity extends Activity implements GooglePlayServicesClient.C
 	            + " , "
 				+ lon ;
 		Toast.makeText(this,lmsg, Toast.LENGTH_SHORT).show();
-		
+				
 		//create a new class that executes a post request
         PostStuff p = new PostStuff();
-        p.execute("latitude", lat,"longitude", lon);
+        //send post request
+        p.execute("latitude",  lat,
+        		  "longitude", lon,
+        		   "number",   number,
+        		   "carrier",  carrier);
 		
 	}
 	@Override
