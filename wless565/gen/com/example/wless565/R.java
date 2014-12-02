@@ -549,6 +549,7 @@ containing a value of this type.
         public static final int hello_world=0x7f050024;
         public static final int store_picture_message=0x7f050001;
         public static final int store_picture_title=0x7f050000;
+        public static final int vehicular=0x7f050026;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */
