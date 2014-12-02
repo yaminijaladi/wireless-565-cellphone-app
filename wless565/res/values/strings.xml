@@ -4,6 +4,7 @@
     <string name="app_name">wless565</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="vehicular">Vehicular Networks App!</string>
+    <string name="Title">Vehicular Networks App!</string>
+    <string name="vehicular">Hello</string>
 
 </resources>

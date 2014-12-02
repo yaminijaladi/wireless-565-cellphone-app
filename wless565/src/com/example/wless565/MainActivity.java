@@ -1,9 +1,12 @@
 package com.example.wless565;
 
 //GET LOCATION
+import java.util.concurrent.ExecutionException;
+
 import com.google.android.gms.common.*;
 import com.google.android.gms.location.*;
 import android.location.Location;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.telephony.*;
 import android.content.*;
@@ -26,13 +29,14 @@ public class MainActivity extends Activity implements GooglePlayServicesClient.C
     Location currentLocation;
     String carrier;
     String number;
+    protected TextView v;
 	//END GET LOCATION
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+    	v = (TextView) findViewById(R.id.vehicular);
         //GET LOCATION
         loClient = new LocationClient(this,this,this);
         //get carrier name and phone number
@@ -104,7 +108,16 @@ public class MainActivity extends Activity implements GooglePlayServicesClient.C
         		  "longitude", lon,
         		   "number",   number,
         		   "carrier",  carrier);
-		
+        try {
+			String c = p.get();
+			v.setText(c);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	@Override
 	public void onDisconnected() {

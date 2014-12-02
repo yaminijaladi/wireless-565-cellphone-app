@@ -410,7 +410,7 @@ containing a value of this type.
         public static final int redcar=0x7f020021;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0015;
+        public static final int action_settings=0x7f0a0016;
         public static final int book_now=0x7f0a000e;
         public static final int buyButton=0x7f0a000a;
         public static final int buy_now=0x7f0a000f;
@@ -425,12 +425,13 @@ containing a value of this type.
         public static final int none=0x7f0a0001;
         public static final int normal=0x7f0a0002;
         public static final int production=0x7f0a0007;
-        public static final int redcar_image=0x7f0a0014;
+        public static final int redcar_image=0x7f0a0015;
         public static final int sandbox=0x7f0a0008;
         public static final int satellite=0x7f0a0003;
         public static final int selectionDetails=0x7f0a000b;
         public static final int strict_sandbox=0x7f0a0009;
         public static final int terrain=0x7f0a0004;
+        public static final int vehicular=0x7f0a0014;
         public static final int wrap_content=0x7f0a000d;
     }
     public static final class integer {
@@ -443,6 +444,7 @@ containing a value of this type.
         public static final int main=0x7f090000;
     }
     public static final class string {
+        public static final int Title=0x7f050026;
         public static final int accept=0x7f050002;
         public static final int action_settings=0x7f050025;
         public static final int app_name=0x7f050023;
@@ -551,7 +553,7 @@ containing a value of this type.
         public static final int hello_world=0x7f050024;
         public static final int store_picture_message=0x7f050001;
         public static final int store_picture_title=0x7f050000;
-        public static final int vehicular=0x7f050026;
+        public static final int vehicular=0x7f050027;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */
