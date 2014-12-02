@@ -407,9 +407,10 @@ containing a value of this type.
         public static final int ic_plusone_tall_off_client=0x7f02001e;
         public static final int powered_by_google_dark=0x7f02001f;
         public static final int powered_by_google_light=0x7f020020;
+        public static final int redcar=0x7f020021;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0014;
+        public static final int action_settings=0x7f0a0015;
         public static final int book_now=0x7f0a000e;
         public static final int buyButton=0x7f0a000a;
         public static final int buy_now=0x7f0a000f;
@@ -424,6 +425,7 @@ containing a value of this type.
         public static final int none=0x7f0a0001;
         public static final int normal=0x7f0a0002;
         public static final int production=0x7f0a0007;
+        public static final int redcar_image=0x7f0a0014;
         public static final int sandbox=0x7f0a0008;
         public static final int satellite=0x7f0a0003;
         public static final int selectionDetails=0x7f0a000b;

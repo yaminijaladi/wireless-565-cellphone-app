@@ -12,9 +12,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/vehicular" />
-    <ImageView 
-        android:id="@+id/redcar_image"
-        android:src="@drawable/redcar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+
 </RelativeLayout>
